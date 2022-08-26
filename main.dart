@@ -1,3 +1,4 @@
+import 'dart:indexed_db';
 import 'dart:io';
 
 void main(List<String> args) {
@@ -14,9 +15,21 @@ void main(List<String> args) {
   print('Enter the second number: ');
   var num2 = double.parse(stdin.readLineSync()!);
 
-  // print('Enter the operand: ');
-  // var operand = double.parse(stdin.readLineSync()!);
-  addition(num1, num2);
+  print('Enter the operand: ');
+  var operand = double.parse(stdin.readLineSync()!);
+
+  if (operand == "+") {
+    addition(num1, num2);
+  } else if (operand == "-") {
+    subtraction(num1, num2);
+  } else if (operand == "*") {
+    multiply(num1, num2);
+  } else if (operand == "/") {
+    divide(num1, num2);
+  } else {
+    print(
+        "You've entered an invalid operand. This calculator only accepts +, -, *, and /");
+  }
 }
 
 void addition(double num1, double num2) {
